@@ -1,8 +1,4 @@
-import {
-  environment,
-  OMDB_URL,
-  OMDB_API_KEY
-} from './../../environments/environment';
+import { OMDB_URL, OMDB_API_KEY } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -34,8 +30,9 @@ export class MovieService {
       )
       .pipe(
         map(results => {
-          console.log('RAW: ', results);
-          return results['Search'];
+          const key = 'Search';
+          return results[key];
+          // return results['Search'];
         })
       );
   }
